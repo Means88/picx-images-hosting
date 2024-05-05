@@ -1,5 +1,7 @@
 title: Gallery
 subtitle: Means88's memory library
+favicon: 'https://means88.com/favicon.ico'
+avatar: 'https://means88.com/static/media/avatar.2316da1abd928fe5f335.jpeg'
 description: さあ、旅に出よう、忘れないうちに
 cover: 'https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/example/1.webp'
 author: Means88
@@ -12,6 +14,8 @@ footer_logo:
 
 url: https://photo.means88.com/
 root: /
+
+busuanzi: false
 
 photography_page:
   slogan: true
