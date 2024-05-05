@@ -11,7 +11,7 @@ footer_logo:
     src: 'https://github.com/lfkdsk/picx-images-hosting/raw/master/20230817/tripper2white.2pbuwaqvndu0.webp'
 
 url: https://photo.means88.com/
-root: /gallery
+root: /
 
 photography_page:
   slogan: true
@@ -27,22 +27,22 @@ google_analytics:
 
 nav:
   地图:
-    link: /gallery/location
+    link: /location
     icon: local-two
   归档:
     link: https://lfkdsk.github.io
     icon: inbox
   随机:
-    link: /gallery/random
+    link: /random
     icon: pic
   # 查询:
   #   link: /gallery/query
   #   icon: history-query
   状态监控:
-    link: /gallery/status
+    link: /status
     icon: list-view
   时间线:
-    link: /gallery/grid-all
+    link: /grid-all
     icon: grid-nine
 
 thumbnail_url: https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail/
