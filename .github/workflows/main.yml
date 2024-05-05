@@ -63,6 +63,7 @@ jobs:
         npm install hexo-cli -g
         hexo g --config new_config.yml
         ls ./public
+        cat ./public/index.html
     - name: Deploy Thumbnail
       uses: peaceiris/actions-gh-pages@v3
       with:
