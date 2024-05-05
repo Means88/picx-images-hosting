@@ -1,0 +1,51 @@
+title: 照片集
+subtitle: Take Photo Think Seriously
+description: 拿起相机，认真思考
+cover: 'https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/example/1.webp'
+author: Means88
+
+footer_logo:
+  use: self
+  self:
+    link: 'https://means88.com/'
+    src: 'https://github.com/lfkdsk/picx-images-hosting/raw/master/20230817/tripper2white.2pbuwaqvndu0.webp'
+
+url: https://photo.means88.com/
+root: /gallery
+
+photography_page:
+  slogan: true
+  slogan_descr: 'The moments when I pressed the shutter, the moments are forever.'
+  travel_slogan: true
+  travel_slogan_descr: 'Travel all over the world ~'
+
+google_analytics:
+  use: gtag
+  ga_id:
+  ga_api:
+  gtag_id: G-8TMSDJG47Q
+
+nav:
+  地图:
+    link: /gallery/location
+    icon: local-two
+  归档:
+    link: https://lfkdsk.github.io
+    icon: inbox
+  随机:
+    link: /gallery/random
+    icon: pic
+  # 查询:
+  #   link: /gallery/query
+  #   icon: history-query
+  状态监控:
+    link: /gallery/status
+    icon: list-view
+  时间线:
+    link: /gallery/grid-all
+    icon: grid-nine
+
+thumbnail_url: https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail/
+base_url: https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master
+backup_base_url: https://raw.githubusercontent.com/Means88/picx-images-hosting/master
+backup_thumbnail_url: https://raw.githubusercontent.com/Means88/picx-images-hosting/thumbnail
