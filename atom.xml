@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>照片集</title>
+  
+  <subtitle>Take Photo Think Seriously</subtitle>
+  <link href="https://photo.means88.com/atom.xml" rel="self"/>
+  
+  <link href="https://photo.means88.com/"/>
+  <updated>2024-05-05T07:14:37.804Z</updated>
+  <id>https://photo.means88.com/</id>
+  
+  <author>
+    <name>Means88</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>照片集</title>
+    <link href="https://photo.means88.com/2024/undefined/"/>
+    <id>https://photo.means88.com/2024/undefined/</id>
+    <published>2024-05-05T07:14:37.804Z</published>
+    <updated>2024-05-05T07:14:37.804Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
