@@ -61,14 +61,12 @@ jobs:
       run: |
         echo $BASE_URL
         python build.py
-        cat new_config.yml
     - name: Install Dependencies & Build
       run: |
         npm install
         npm ci
         npm install hexo-cli -g
-        hexo g --config new_config.yml
-        ls ./public
+        npm run generate
     - name: Deploy Thumbnail
       uses: peaceiris/actions-gh-pages@v3
       with:
