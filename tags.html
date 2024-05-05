@@ -107,15 +107,15 @@
 
   <!-- Custom CSS/Sass -->
   
-<link rel="stylesheet" href="/gallery/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
   
-<link rel="stylesheet" href="/gallery/css/fancybox.css">
+<link rel="stylesheet" href="/css/fancybox.css">
 
   <!--样式切换-->
   
   
-<link rel="stylesheet" href="/gallery/css/material3.css">
+<link rel="stylesheet" href="/css/material3.css">
 
   
   
@@ -125,13 +125,13 @@
   <!--highlight.js CSS-->
   
   
-<link rel="stylesheet" href="/gallery/css/highlight/github.css">
+<link rel="stylesheet" href="/css/highlight/github.css">
 
   
   
   <!-- jquery -->
   
-  <script src="/gallery/js/jquery.min.js"></script>
+  <script src="/js/jquery.min.js"></script>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
@@ -163,7 +163,7 @@
   
   
   
-  <link rel="manifest" href="/gallery/manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#71afdd">
   
   <!-- Google Search Advanced
@@ -201,7 +201,7 @@
   }
 </script>-->
 
-<link rel="stylesheet" href="/gallery/css/tailwind.css">
+<link rel="stylesheet" href="/css/tailwind.css">
 
 <meta name="generator" content="Hexo 6.0.0"></head>
 
@@ -216,7 +216,7 @@
 
 <div class="itp-float-bar">
   <!--所有页面都显示-->
-  <a class="itp-float-bar-item rounded" href="/gallery/" title="照片集">
+  <a class="itp-float-bar-item rounded" href="/" title="照片集">
     
     <iconpark-icon class="navicon" name="home"></iconpark-icon>
     
@@ -224,7 +224,7 @@
   
   <!--只在 **非文章** 页面显示-->
   
-  <a class="itp-float-bar-item rounded" href="/gallery/location" title="地图">
+  <a class="itp-float-bar-item rounded" href="/location" title="地图">
     
     <iconpark-icon class="navicon" name="local-two"></iconpark-icon>
     
@@ -236,19 +236,19 @@
     
   </a>
   
-  <a class="itp-float-bar-item rounded" href="/gallery/grid-all" title="时间线">
+  <a class="itp-float-bar-item rounded" href="/grid-all" title="时间线">
     
     <iconpark-icon class="navicon" name="grid-nine"></iconpark-icon>
     
   </a>
   
-  <a class="itp-float-bar-item rounded" href="/gallery/status" title="状态监控">
+  <a class="itp-float-bar-item rounded" href="/status" title="状态监控">
     
     <iconpark-icon class="navicon" name="list-view"></iconpark-icon>
     
   </a>
   
-  <a class="itp-float-bar-item rounded" href="/gallery/random" title="随机">
+  <a class="itp-float-bar-item rounded" href="/random" title="随机">
     
     <iconpark-icon class="navicon" name="pic"></iconpark-icon>
     
@@ -293,7 +293,7 @@
     const initSqlJs = window.initSqlJs;
 
     const SQL = await initSqlJs({
-      locateFile: file => `/gallery/js/sql-wasm.wasm`
+      locateFile: file => `/js/sql-wasm.wasm`
     });
     const q = `
 SELECT Tag.name
@@ -322,7 +322,7 @@ WHERE tag.name = "` + tag + "\"";
         for (const column of item.values) {
           for (const imgpath of column) {
             const ele = document.createElement("a");
-            // ele.href = "/gallery/tags.html"
+            // ele.href = "/tags.html"
             const d = document.createElement("div");
             d.classList = "gpro-tile lazy"
             d.setAttribute("style", 'background-image: url("https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail/' + imgpath.substr(0, imgpath.lastIndexOf(".")) + '.webp")')
@@ -408,7 +408,7 @@ WHERE tag.name = "` + tag + "\"";
   <!-- fancybox -->
 
 <link rel="stylesheet" href="" />
-<script src="/gallery/js/fancybox.umd.js" defer></script>
+<script src="/js/fancybox.umd.js" defer></script>
 
 <!-- mdui -->
 
@@ -419,7 +419,7 @@ WHERE tag.name = "` + tag + "\"";
 <!-- highlightjs -->
 
 
-<script src="/gallery/js/highlight.min.js"></script>
+<script src="/js/highlight.min.js"></script>
 
 <script>window.addEventListener('load', () => {
   hljs.highlightAll(); // initialize highlighting
@@ -432,23 +432,23 @@ WHERE tag.name = "` + tag + "\"";
 
 
 
-<script src="/gallery/js/app.js"></script>
+<script src="/js/app.js"></script>
 
 
 
 <!--
 
-<script src="/gallery/js/canvas2image.js"></script>
+<script src="/js/canvas2image.js"></script>
 
 
-<script src="/gallery/js/shareimg.js"></script>
+<script src="/js/shareimg.js"></script>
 
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.js" defer></script>
 -->
 <!--lazyload-->
 
 
-<script src="/gallery/js/lazyload.js"></script>
+<script src="/js/lazyload.js"></script>
 
 
 <!--PJAX-->
