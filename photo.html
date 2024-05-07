@@ -286,7 +286,7 @@
             <img id="exif-maker-logo" class="nofancy" style="object-fit: cover;"></img>
         </div>
         <div style="margin-left: 10px; width: 1px; background-color: black;"></div>
-        <div style="padding-left: 10px; position: relative; max-width: calc(30vw);">
+        <div id="exif-text" style="padding-left: 10px; position: relative;">
             <div style="display: flex; flex-direction: column; justify-content: center;">
                 <div id="exif-maker"></div>
                 <div id="exif-lens"></div>
@@ -300,10 +300,13 @@
     </div>
 </div>
 <style>
+    #exif-text {
+        max-width: calc(20vw);
+    }
+
     #exif-maker-logo {
         text-align: center;
         vertical-align: baseline;
-        height: 40px;
     }
 
     #exif-param {
@@ -371,8 +374,36 @@
         }
 
         #exif-maker-logo {
+        }
+
+        #exif-text {
+            max-width: calc(30vw);
+        }
+    }
+
+    .apple-logo, 
+    .ricoh-logo, 
+    .fujifilm-logo {
+        height: 40px;
+    }
+
+    .sony-logo,
+    .canon-logo {
+        width: 80px;
+    }
+
+    @media (max-width: 768px) {
+        .apple-logo, 
+        .ricoh-logo, 
+        .fujifilm-logo {
             height: 30px;
         }
+
+        .sony-logo,
+        .canon-logo {
+            width: 40px;
+        }
+
     }
 
     @media (prefers-color-scheme: dark) {

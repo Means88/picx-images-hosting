@@ -285,7 +285,7 @@
             <img id="exif-maker-logo" class="nofancy" style="object-fit: cover;"></img>
         </div>
         <div style="margin-left: 10px; width: 1px; background-color: black;"></div>
-        <div style="padding-left: 10px; position: relative; max-width: calc(30vw);">
+        <div id="exif-text" style="padding-left: 10px; position: relative;">
             <div style="display: flex; flex-direction: column; justify-content: center;">
                 <div id="exif-maker"></div>
                 <div id="exif-lens"></div>
@@ -299,10 +299,13 @@
     </div>
 </div>
 <style>
+    #exif-text {
+        max-width: calc(20vw);
+    }
+
     #exif-maker-logo {
         text-align: center;
         vertical-align: baseline;
-        height: 40px;
     }
 
     #exif-param {
@@ -370,8 +373,36 @@
         }
 
         #exif-maker-logo {
+        }
+
+        #exif-text {
+            max-width: calc(30vw);
+        }
+    }
+
+    .apple-logo, 
+    .ricoh-logo, 
+    .fujifilm-logo {
+        height: 40px;
+    }
+
+    .sony-logo,
+    .canon-logo {
+        width: 80px;
+    }
+
+    @media (max-width: 768px) {
+        .apple-logo, 
+        .ricoh-logo, 
+        .fujifilm-logo {
             height: 30px;
         }
+
+        .sony-logo,
+        .canon-logo {
+            width: 40px;
+        }
+
     }
 
     @media (prefers-color-scheme: dark) {
@@ -418,6 +449,22 @@
             extra='{"desc":" - · - ","dir":"example","exif":"","exif_data":{},"location":[],"name":"1","path":"example/1.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//example/1.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/example/1.webp"}'
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//example/1.webp"
             aria-label="the photo 1"></a>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a class="album-item lazy" id="2"
+            name="IMG_7711" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/example/IMG_7711.JPG"
+            desc="  - · -  "
+            share="example/IMG_7711.JPG"
+            extra='{"desc":" - · - ","dir":"example","exif":"SONY ILCE-6700 1/50s F4.5 ISO 6400 32mm E 18-135mm F3.5-5.6 OSS ","exif_data":{"EXIF DateTimeOriginal":"2024:05:06 22:03:01","EXIF ExposureTime":"1/50s","EXIF FNumber":"F4.5","EXIF FocalLength":"32mm","EXIF ISOSpeedRatings":"ISO 6400","EXIF LensModel":"E 18-135mm F3.5-5.6 OSS","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"IMG_7711","path":"example/IMG_7711.JPG","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//example/IMG_7711.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/example/IMG_7711.JPG"}'
+            href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//example/IMG_7711.webp"
+            aria-label="the photo 2"></a>
           
       </div>
       <div class="text-center text-xs pt-2 hint-text"> </div>
@@ -519,7 +566,7 @@
           var value = $(`[name='${name}']`)[0];
           changeImageWith(value)
         };
-        const len = +'2'
+        const len = +'3'
         if (name !== "" && name !== null && name !== 'null') {
           changeImageWithName(name)
         } else {
