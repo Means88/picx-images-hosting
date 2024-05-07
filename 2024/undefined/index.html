@@ -14,7 +14,7 @@
   <meta http-equiv="Cache-Control" content="no-siteapp">
   <!--Description-->
   
-  <meta name="description" content="Means88&#39;s memory library">
+  <meta name="description" content="さあ、旅に出よう、忘れないうちに">
   
   <meta name="google-site-verification" content="J4gssmXGNI9-DfJ9w52mL5KFPlRCYvySveEN0RJFZHU" />
   <!--Author-->
@@ -24,7 +24,7 @@
   <!--Open Graph Title-->
   <meta property="og:title" content="照片集" />
   <!--Open Graph Description-->
-  <meta property="og:description" content="Means88&#39;s memory library" />
+  <meta property="og:description" content="さあ、旅に出よう、忘れないうちに" />
   <!--Open Graph Site Name-->
   <meta property="og:site_name" content="Gallery" />
   <!--Type page-->
@@ -122,6 +122,13 @@
   
   
   
+  <!--highlight.js CSS-->
+  
+  
+<link rel="stylesheet" href="/css/highlight/github.css">
+
+  
+  
   <!-- jquery -->
   
   <script src="/js/jquery.min.js"></script>
@@ -137,6 +144,21 @@
   <script src="js/tools.js"></script>
   <!--Howxm Analytics-->
   
+  
+  
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TMSDJG47Q" defer></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8TMSDJG47Q');
+  </script>
   
   
   
@@ -156,7 +178,7 @@
       "@type": "NewsArticle",
       "headline": "照片集",
       "image": "https://imgur.lzmun.com/picgo/after2022/6DD1FBC3-AD8A-4340-842D-6ACF531F8291_1_105_c.jpeg_itp",
-      "datePublished": "Sun May 05 2024 09:33:45 GMT+0000",
+      "datePublished": "Tue May 07 2024 04:06:40 GMT+0000",
       "author": [{
         "@type": "Person",
         "name": "Means88",
@@ -223,15 +245,15 @@
     
   </a>
   
-  <a class="itp-float-bar-item rounded" href="/random" title="随机">
-    
-    <iconpark-icon class="navicon" name="pic"></iconpark-icon>
-    
-  </a>
-  
   <a class="itp-float-bar-item rounded" href="/grid-all" title="时间线">
     
     <iconpark-icon class="navicon" name="grid-nine"></iconpark-icon>
+    
+  </a>
+  
+  <a class="itp-float-bar-item rounded" href="/random" title="随机">
+    
+    <iconpark-icon class="navicon" name="pic"></iconpark-icon>
     
   </a>
   
@@ -369,16 +391,20 @@
     Gallery &copy; 2017 - 2024
     
     
+    
+    <span> / </span>
+    <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+    <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+    
     <span> / Template</span>
-    <a href="https://github.com/Means88/photolibrary" target="_blank">Type
+    <a href="https://github.com/lfkdsk/album_template" target="_blank">Type
     </a>
   </section>
   
     <a href="https://means88.com/" target="_blank">
-      <img width="40px" height="40px" style="display: block; margin: 12px auto; border-radius: 50%; overflow: hidden;" src="https://means88.com/static/media/avatar.2316da1abd928fe5f335.jpeg" alt="footer logo"></a>
+      <img width="80px" height="80px" style="padding-top: 12px; display: block; margin: 0 auto;" src="https://github.com/lfkdsk/picx-images-hosting/raw/master/20230817/tripper2white.2pbuwaqvndu0.webp" alt="footer logo"></a>
   
 </footer>
-
   <!-- After footer scripts -->
   <!-- fancybox -->
 
@@ -389,7 +415,21 @@
 
 <!-- busuanzi -->
 
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+
 <!-- highlightjs -->
+
+
+<script src="/js/highlight.min.js"></script>
+
+<script>window.addEventListener('load', () => {
+  hljs.highlightAll(); // initialize highlighting
+});</script>
+<script>
+  $("pre.code").each(function() {
+    $(this).html("<ol><li>" + $(this).html().replace(/\n/g, "\n</li><li>") + "\n</li></ol>");
+  });
+</script>
 
 
 
