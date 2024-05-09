@@ -1,3 +1,17 @@
+猫:
+  url: cat
+  date: 2024-05-09
+  style: fullscreen
+  cover: cat/DSC00007.webp
+  location: [40.00008360843984, 116.28057255312994]
+
+室内小物:
+  url: item
+  date: 2024-05-09
+  style: fullscreen
+  cover: item/DSC00003.webp
+  location: [39.98522125160423, 116.41441630320922]
+
 示例:
   url: example
   date: 2024-04-29
