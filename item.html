@@ -286,16 +286,18 @@
         <div id="exif-param"></div>
         <div id="exif-date"></div>
     </div>
-    <div class="exif-right" style="display: flex; flex-direction:row; justify-content: start;">
-        <div style="display: flex; justify-content: center; flex-direction: column;">
-            <img id="exif-maker-logo" class="nofancy" style="object-fit: cover;"></img>
-        </div>
-        <div style="margin-left: 10px; width: 1px; background-color: black;"></div>
-        <div id="exif-text" style="padding-left: 10px; position: relative;">
-            <div style="display: flex; flex-direction: column; justify-content: center;">
-                <div id="exif-maker"></div>
-                <div id="exif-lens"></div>
-                <div id="exif-author"></div>
+    <div class="exif-right" style="display: flex; flex-direction: column; justify-self: center;">
+        <div style="display: flex; flex-direction:row; justify-content: start;">
+            <div style="display: flex; justify-content: center; flex-direction: column;">
+                <img id="exif-maker-logo" class="nofancy" style="object-fit: cover;"></img>
+            </div>
+            <div style="margin-left: 10px; width: 1px; background-color: black;"></div>
+            <div id="exif-text" style="padding-left: 10px; position: relative;">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <div id="exif-maker"></div>
+                    <div id="exif-lens"></div>
+                    <div id="exif-author"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -353,7 +355,7 @@
     .pic-area {
         border-style: solid;
         border-width: thin;
-        border-color: rgb(22, 22, 22);
+        border-color: rgb(22 22 22 / 48%);
     }
 
     @media (max-width: 768px) {
@@ -504,6 +506,22 @@
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00062.webp"
             aria-label="the photo 4"></a>
           
+          
+          
+          
+          
+          
+          
+          
+          
+          <a class="album-item lazy" id="5"
+            name="_DSC0262" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/_DSC0262.webp"
+            desc="  - · -  "
+            share="item/_DSC0262.webp"
+            extra='{"desc":" - · - ","dir":"item","exif":"SONY ILCE-6700 1/13s F14 ISO 100 50mm 18-50mm F2.8 DC DN | Contemporary 021 ","exif_data":{"EXIF DateTimeOriginal":"2024:08:12 21:12:01","EXIF ExposureTime":"1/13s","EXIF FNumber":"F14","EXIF FocalLength":"50mm","EXIF ISOSpeedRatings":"ISO 100","EXIF LensModel":"18-50mm F2.8 DC DN | Contemporary 021","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"_DSC0262","path":"item/_DSC0262.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/_DSC0262.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/_DSC0262.webp"}'
+            href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/_DSC0262.webp"
+            aria-label="the photo 5"></a>
+          
       </div>
       <div class="text-center text-xs pt-2 hint-text"> </div>
     </div>
@@ -604,7 +622,7 @@
           var value = $(`[name='${name}']`)[0];
           changeImageWith(value)
         };
-        const len = +'5'
+        const len = +'6'
         if (name !== "" && name !== null && name !== 'null') {
           changeImageWithName(name)
         } else {
@@ -660,7 +678,7 @@
           copyToClipboard('https://photo.means88.com/' + "photo?name=" + imageBox.getAttribute('share'));
         });
         $("#grid").on('click', function() {
-          window.open('/grid?name=' + encodeURIComponent('item'));
+          window.open('/grid-all?album=' + encodeURIComponent('item'));
         });
       </script>
       <style>
@@ -809,6 +827,11 @@
 
           .pic-area {
             grid-column: span 2 / span 2;
+            padding: 12px 12px 4px 12px;
+          }
+
+          #exif-wrapper {
+            margin-top: 4px;
           }
 
           .default-pic {
