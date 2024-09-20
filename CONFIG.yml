@@ -10,7 +10,7 @@ footer_logo:
   use: self
   self:
     link: 'https://means88.com/'
-    src: 'https://means88.com/static/media/avatar.2316da1abd928fe5f335.jpeg'
+    src: 'https://means88.com/_next/image?url=%2Favatar.jpeg&w=256&q=75'
 
 url: https://photo.means88.com/
 root: /
