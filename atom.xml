@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Gallery</title>
+  <title>Means88 | Gallery</title>
   
   <subtitle>Means88&#39;s memory library</subtitle>
   <link href="https://photo.means88.com/atom.xml" rel="self"/>
   
   <link href="https://photo.means88.com/"/>
-  <updated>2024-08-17T10:30:40.358Z</updated>
+  <updated>2024-09-20T03:01:26.947Z</updated>
   <id>https://photo.means88.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>照片集</title>
     <link href="https://photo.means88.com/2024/undefined/"/>
     <id>https://photo.means88.com/2024/undefined/</id>
-    <published>2024-08-17T10:30:40.358Z</published>
-    <updated>2024-08-17T10:30:40.358Z</updated>
+    <published>2024-09-20T03:01:26.947Z</published>
+    <updated>2024-09-20T03:01:26.947Z</updated>
     
     
     

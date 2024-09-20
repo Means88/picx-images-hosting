@@ -26,7 +26,7 @@
   <!--Open Graph Description-->
   <meta property="og:description" content="さあ、旅に出よう、忘れないうちに" />
   <!--Open Graph Site Name-->
-  <meta property="og:site_name" content="Gallery" />
+  <meta property="og:site_name" content="Means88 | Gallery" />
   <!--Type page-->
   
   <meta property="og:type" content="article" />
@@ -38,9 +38,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- Title -->
   
-  <title>随机照片 - Gallery</title>
+  <title>随机照片 - Means88 | Gallery</title>
   <!-- 添加到主屏后的标题（iOS 6 新增） -->
-  <meta name="apple-mobile-web-app-title" content="Gallery">
+  <meta name="apple-mobile-web-app-title" content="Means88 | Gallery">
   <!-- 是否启用 WebApp 全屏模式 -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="apple-touch-startup-image" href="/assets/ splash-assets.png" media="(max-device-width: 700px)">
@@ -53,7 +53,7 @@
   <link rel="apple-touch-icon" sizes="114x114" href="https://imgur.lzmun.com/picgo/after2022/tripper2color.png_iPhoneHD" />
   <link rel="apple-touch-icon" sizes="144x144" href="https://imgur.lzmun.com/picgo/after2022/tripper2color.png_RetinaiPad" />
   <!-- 添加 RSS 订阅 -->
-  <link rel="alternate" type="application/rss+xml" title="Gallery" href="/rss" />
+  <link rel="alternate" type="application/rss+xml" title="Means88 | Gallery" href="/rss" />
   <!-- uc强制竖屏 -->
   <meta name="screen-orientation" content="portrait">
   <!-- QQ强制竖屏 -->
@@ -222,7 +222,7 @@
 
 <div class="itp-float-bar">
   <!--所有页面都显示-->
-  <a class="itp-float-bar-item rounded" href="/" title="Gallery">
+  <a class="itp-float-bar-item rounded" href="/" title="Means88 | Gallery">
     
     <iconpark-icon class="navicon" name="home"></iconpark-icon>
     
@@ -272,7 +272,8 @@
   }
 </style>
   <!-- Main Content -->
-  <script src="js/html2canvas.js"></script>
+  <script src="js/sql-wasm.js"></script>
+<script src="js/html2canvas.js"></script>
 <section class="pjax-area">
     <div class="content-area post-album fullscreen-content-area">
     <div class="grid grid-cols-3 gap-2">
@@ -453,7 +454,6 @@
     #exif-maker-logo {
         text-align: center;
         vertical-align: baseline;
-        height: 40px;
     }
 
     #exif-param {
@@ -756,22 +756,48 @@
             var normalWrapper = $("#normal-wrapper");
             var normalData = $("#no-exif-data");
             var download = $("#downloadbox");
-            console.time('json')
-            const response = await fetch('photos.json');
-            const all = await response.json();
-            console.timeEnd('json')
-            const keys = Object.keys(all);
-            const max = keys.length;
+            const SQL = await initSqlJs({
+                locateFile: (file) => `/js/sql-wasm.wasm`,
+            });            
+            const sqlite = await fetch("sqlite.db");
+            const sqlite_buf = await sqlite.arrayBuffer();
+            const db = new SQL.Database(new Uint8Array(sqlite_buf));
             var value = null;
             var name = null;
             function nextImage() {
-                var random = Math.floor(Math.random() * max);
-                var key = keys[random];
-                var v = all[key];
-                value = v;
-                if (v === null) {
+                var result = db.exec(
+                `
+SELECT json_object(
+'path', photo.path, 
+'dir', album.dir, 
+'exif', photo.exif,
+'name', photo.name,
+'exif_data', json_object(
+        'EXIF FNumber', CONCAT('F', exifdata.f_number),
+        'EXIF ISOSpeedRatings', CONCAT('ISO ', exifdata.iso),
+        'EXIF ExposureTime', CONCAT(exifdata.exposure_time, 's'),
+        'EXIF DateTimeOriginal', exifdata.date,
+        'EXIF FocalLength', CONCAT(exifdata.focal_length, 'mm'),
+        'Image Make', exifdata.maker,
+        'Image Model', exifdata.model,
+        'EXIF LensModel', exifdata.lens_model
+    ),
+'location', json_array(location.lo, location.hi)
+)
+FROM photo
+LEFT OUTER JOIN exifdata
+ON photo.exif_data_id = exifdata.id
+LEFT OUTER JOIN album
+ON photo.dir_id = album.id
+LEFT OUTER JOIN location
+ON photo.location_id = location.id
+ORDER BY random() LIMIT 1;`
+                );
+                if (result.length === 0) {
                     return;
                 }
+                const v = JSON.parse(result[0].values[0]);
+                value = v;
                 var imgLink = 'https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master' + '/' + v.path;
                 imageBox.src = '';
                 imageBox.src = imgLink;
@@ -830,7 +856,7 @@
   <!-- Footer -->
 <footer class="itp-footer text-center">
   <section class="footer-info">
-    Gallery &copy; 2017 - 2024
+    Means88 | Gallery &copy; 2017 - 2024
     
     
     

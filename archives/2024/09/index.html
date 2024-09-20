@@ -22,14 +22,14 @@
   <meta name="author" content="Means88">
   
   <!--Open Graph Title-->
-  <meta property="og:title" content="Grid" />
+  <meta property="og:title" content="Means88 | Gallery" />
   <!--Open Graph Description-->
   <meta property="og:description" content="さあ、旅に出よう、忘れないうちに" />
   <!--Open Graph Site Name-->
   <meta property="og:site_name" content="Means88 | Gallery" />
   <!--Type page-->
   
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="website" />
   
   <!--Page Cover-->
   
@@ -38,7 +38,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- Title -->
   
-  <title>Grid - Means88 | Gallery</title>
+  <title>归档：2024/9 - Means88 | Gallery</title>
   <!-- 添加到主屏后的标题（iOS 6 新增） -->
   <meta name="apple-mobile-web-app-title" content="Means88 | Gallery">
   <!-- 是否启用 WebApp 全屏模式 -->
@@ -272,134 +272,60 @@
   }
 </style>
   <!-- Main Content -->
-  <script src="js/sql-wasm.js"></script>
+  
+
 <section class="pjax-area">
-  <div class="content-area album-area">
-    <div id="grid" class="container gpro-container grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      
-    </div>
+  <div class="content-area p-4 container max-w-[1280px]">
+    <div class="index-achieve-title title">2024/9</div>
+    <div class="text-2xl leading-10 py-2 col-span-1 md:col-span-3 text-tblack dark:text-white">分类</div>
+    <section class="itp-article-categories" style="list-style-type: none;">
+      <div class="itp-m3-chip-color-list">
+        
+      </div>
+    </section>
+    <div class="text-2xl leading-10 py-2 col-span-1 md:col-span-3 text-tblack dark:text-white">标签</div>
+    <section class="itp-article-categories" style="list-style-type: none;">
+      <div class="itp-m3-chip-normal-list">
+        
+      </div>
+    </section>
+    <!-- learn from https://hughsite.com/post/hexo-modify-theme.html -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  
+  
+  
+  
+  <p class="text-2xl leading-10 py-2 col-span-1 md:col-span-2 lg:col-span-3 gap-1 text-tblack dark:text-white">2024</p>
+  
+  
+  <div class="h-auto px-3 py-1 hover:bg-gray-200 dark:hover:bg-gray-800 rounded transition-all">
+    <a href="/2024/undefined/" class="flex items-center">
+      <div class="px-1">
+        <div class="post-title text-tblack dark:text-white">照片集</div>
+        <span class="text-sm leading-4 text-gray-400">2024-09-20</span>
+        
+      </div>
+    </a>
   </div>
-  <script type="module">
-    var grid = document.getElementById("grid");
-    var name = getParam('name');
-    const start = performance.now();
-    const SQL = await initSqlJs({
-      locateFile: (file) => `/js/sql-wasm.wasm`,
-    });
-    const sqlite = await fetch("sqlite.db");
-    const sqlite_buf = await sqlite.arrayBuffer();
-    const db = new SQL.Database(new Uint8Array(sqlite_buf));
-    const result = db.exec(
-`
-SELECT photo.path, album.dir
-FROM photo
-LEFT OUTER JOIN album
-ON photo.dir_id = album.id
-WHERE album.dir = '` + name + "'"
-    )[0].values;
-    var setTitle = true;
-    for (const v of result) {
-      var d = document.createElement('div');
-      d.classList = 'gpro-tile lazy';
-      d.setAttribute('data-src', 'https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail/' + v[0].replace(/\.\w+$/, '.webp'));
-      var a = document.createElement('a');
-      a.setAttribute('data-fancybox', 'gallery');
-      a.href = 'https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/' + v[0];
-      a.appendChild(d);
-      grid.appendChild(a);
-      if (setTitle) {
-        setTitle = false;
-        document.title = v[1] + ' ' + document.title; 
-      }
-    }
-    $(function () {
-      $("div.lazy").lazyload();
-    });
-    const duration = performance.now() - start;
-    console.log(duration);    
-  </script>
-  <style>
-    body {
-      background-color: #fff;
-    }
-
-    .album-area {
-      margin-top: 120px;
-      padding-left: 16px;
-      padding-right: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .gpro-slogan {
-      text-align: center;
-      font-size: 36px;
-      font-weight: 700;
-      color: #3D4350;
-    }
-
-    .gpro-container {
-      gap: 20px;
-    }
-
-    .gpro-tile {
-      aspect-ratio: 3 / 2;
-      background-position: center;
-      background-size: cover;
-      transition: all .15s ease-in-out;
-      min-height: 211px;
-    }
-
-    .gpro-tile:hover {
-      box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
-      transition: all .15s ease-in-out;
-    }
-
-    .gpro-tile-descr {
-      position: relative;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      color: #fff;
-      font-size: 14px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      align-items: center;
-      text-overflow: clip;
-      flex-direction: column;
-      transition: all .15s ease-in-out;
-      padding-bottom: .85em;
-      opacity: 0;
-      background-color: rgb(9, 9, 11);
-    }
-
-    .gpro-tile-descr:hover {
-      opacity: 0.8;
-      transition: all .15s ease-in-out;
-    }
-
-    @media (max-width: 768px) {
-      .gpro-tile-descr {
-        opacity: 0.6;
-      }
-
-      .gpro-slogan {
-        font-size: 28px;
-      }
-
-      .content-area {
-        margin-top: 0px;
-      }
-
-      .gpro-container {
-        margin-top: 40px;
-      }
-    }
-  </style>
+  
+  
+</div>
+<style>
+  .post-title {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  .post-icon {
+    font-size: 1.2em;
+    color: #9DA3AE;
+  }
+</style>
+  </div>
 </section>
+<!--learn from https://github.com/fluid-dev/hexo-theme-fluid/blob/master/layout/archive.ejs-->
   <!-- Footer -->
   <!-- Footer -->
 <footer class="itp-footer text-center">
