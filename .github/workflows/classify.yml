@@ -8,9 +8,9 @@ on:
 env:
   GIT_USER: Means88 # change to yourself
   GIT_EMAIL: means88.x@gmail.com # change to yourself
-  THEME_REPO: Means88/hexo-theme-type
+  THEME_REPO: lfkdsk/hexo-theme-type
   THEME_BRANCH: main
-  TEMPLATE_REPO: Means88/photolibrary
+  TEMPLATE_REPO: lfkdsk/album_template
   TEMPLATE_BRANCE: main
 
 jobs:
