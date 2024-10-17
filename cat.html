@@ -423,7 +423,7 @@
     }
 </style>  
       </div>
-      <p id="descbox" class="text-center text-xs hint-text" hidden>  - · -  </p>
+      <p id="descbox" class="text-center text-xs hint-text" hidden>  </p>
       <div class="album-list flex gap-2">
         
           
@@ -434,11 +434,13 @@
           
           
           
+          
+          
           <a class="album-item lazy" id="0"
             name="DSC00007" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/cat/DSC00007.webp"
-            desc="  - · -  "
+            desc="The image features a small orange cat walking through a lush, green forest. The cat is walking near a tree, exploring the area and enjoying its natural surroundings. The forest is filled with various plants and trees, creating a serene and peaceful atmosphere."
             share="cat/DSC00007.webp"
-            extra='{"desc":" - · - ","dir":"cat","exif":"SONY ILCE-6700 1/125s F5.6 ISO 100 77mm E 18-135mm F3.5-5.6 OSS ","exif_data":{"EXIF DateTimeOriginal":"2024:05:09 12:07:24","EXIF ExposureTime":"1/125s","EXIF FNumber":"F5.6","EXIF FocalLength":"77mm","EXIF ISOSpeedRatings":"ISO 100","EXIF LensModel":"E 18-135mm F3.5-5.6 OSS","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"DSC00007","path":"cat/DSC00007.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//cat/DSC00007.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/cat/DSC00007.webp"}'
+            extra='{"desc":null,"dir":"cat","exif":"SONY ILCE-6700 1/125s F5.6 ISO 100 77mm E 18-135mm F3.5-5.6 OSS ","exif_data":{"EXIF DateTimeOriginal":"2024:05:09 12:07:24","EXIF ExposureTime":"1/125s","EXIF FNumber":"F5.6","EXIF FocalLength":"77mm","EXIF ISOSpeedRatings":"ISO 100","EXIF LensModel":"E 18-135mm F3.5-5.6 OSS","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"DSC00007","path":"cat/DSC00007.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//cat/DSC00007.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/cat/DSC00007.webp"}'
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//cat/DSC00007.webp"
             aria-label="the photo 0"></a>
           
@@ -450,11 +452,13 @@
           
           
           
+          
+          
           <a class="album-item lazy" id="1"
             name="DSC00008" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/cat/DSC00008.webp"
-            desc="  - · -  "
+            desc="The image features a small orange cat walking through a lush, green forest. The cat is surrounded by tall grass and trees, creating a serene and peaceful atmosphere. The cat appears to be exploring its natural habitat, enjoying the shade and greenery of the woods."
             share="cat/DSC00008.webp"
-            extra='{"desc":" - · - ","dir":"cat","exif":"SONY ILCE-6700 1/125s F5.6 ISO 100 77mm E 18-135mm F3.5-5.6 OSS ","exif_data":{"EXIF DateTimeOriginal":"2024:05:09 12:07:31","EXIF ExposureTime":"1/125s","EXIF FNumber":"F5.6","EXIF FocalLength":"77mm","EXIF ISOSpeedRatings":"ISO 100","EXIF LensModel":"E 18-135mm F3.5-5.6 OSS","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"DSC00008","path":"cat/DSC00008.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//cat/DSC00008.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/cat/DSC00008.webp"}'
+            extra='{"desc":null,"dir":"cat","exif":"SONY ILCE-6700 1/125s F5.6 ISO 100 77mm E 18-135mm F3.5-5.6 OSS ","exif_data":{"EXIF DateTimeOriginal":"2024:05:09 12:07:31","EXIF ExposureTime":"1/125s","EXIF FNumber":"F5.6","EXIF FocalLength":"77mm","EXIF ISOSpeedRatings":"ISO 100","EXIF LensModel":"E 18-135mm F3.5-5.6 OSS","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"DSC00008","path":"cat/DSC00008.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//cat/DSC00008.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/cat/DSC00008.webp"}'
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//cat/DSC00008.webp"
             aria-label="the photo 1"></a>
           
@@ -528,14 +532,23 @@
             wrapperData(v, "Means88");
           }
         }
+
         function changeImageWith(target) {
-          imgno = target.getAttribute('id'); 
+          imgno = target.getAttribute('id');
           imgLink = target.getAttribute('rel');
           name = target.getAttribute('name');
           var desc = target.getAttribute('desc');
+          var thum = target.getAttribute('data-src');
           var v = JSON.parse(target.getAttribute('extra'));
-          imageBox.src = '';
-          imageBox.src = imgLink; //替换图片
+          imageBox.src = thum;
+          imageBox.classList.add('blur');
+          // load the original img.
+          const highResImage = new Image();
+          highResImage.src = imgLink;
+            highResImage.onload = function() {
+              imageBox.src = highResImage.src;
+              imageBox.classList.remove('blur');
+          };
           imageBox.setAttribute("share", target.getAttribute('share'));
           var imageFancy = imageBox.parentElement; // imageBox 是放置大图片的图框
           imageFancy.setAttribute("href", imgLink);
@@ -544,7 +557,8 @@
             fancyBoxImage.src = imgLink;
           }
           target.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
-          descBox.text(desc);
+          descBox.text(imgno.desc);
+          imageBox.title = desc;
           changeExifData(v);
           updateParams(name);
         }
@@ -564,10 +578,12 @@
         } else {
           var value = $(`#0`)[0];
           name = value.getAttribute('name');
+          imageBox.title = value.getAttribute('desc');
           var v = JSON.parse(value.getAttribute('extra'));
           changeExifData(v);
           imageBox.setAttribute("share", value.getAttribute('share'));
         }
+
         $('#download').click(function () {
           var node = document.getElementById('all-pic');
           html2canvas(node, {
@@ -649,19 +665,24 @@
           background-color: black;
           background-size: cover;
           background-position: center;
-          transition: all .3s ease-in-out;
+          transition: all .1s ease-in-out;
           min-height: 200px;
           aspect-ratio: 3 / 2;
+        }
+
+        .blur {
+          filter: blur(50px);
         }
 
         .pic-item > a {
           width: 100%;
           height: 100%;
+          overflow: hidden;
           display: inline-block;
         }
 
         .pic-box {
-          transition: all .3s ease-in-out;
+          transition: all .1s ease-in-out;
           display: inline-block;
           width: 100%;
           height: 100%;
