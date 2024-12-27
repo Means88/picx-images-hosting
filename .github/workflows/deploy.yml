@@ -12,7 +12,9 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+  schedule:
+    - cron: '0 12 * * *'
+    
 env:
   GIT_USER: Means88 # change to yourself
   GIT_EMAIL: means88.x@gmail.com # change to yourself
