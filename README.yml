@@ -1,3 +1,10 @@
+北海道:
+  url: hokkaido
+  date: 2024-12-29
+  style: fullscreen
+  cover: hokkaido/_DSC1129.webp
+  location: [35.4994674, 138.7815516]
+
 神户:
   url: kobe
   date: 2024-12-08
