@@ -452,7 +452,7 @@
       if (v.hasOwnProperty('location') && v.location.length !== 0) {
         // add marker
         var marker = L.marker(v.location).addTo(map);
-        marker.bindPopup(`<a href="/${v.dir}?name=${v.name}">LINK</a>` + `<img class="gmarker nofancy" src=${cover} style="margin-top:4px;" />`);
+        marker.bindPopup(`<a href="https://photo.means88.com/${v.dir}?name=${v.name}">LINK</a>` + `<img class="gmarker nofancy" src=${cover} style="margin-top:4px;" />`);
       }
     }
     // album data
@@ -483,7 +483,7 @@
         });
         // add marker
         var marker = L.marker(v.location, {icon: icon}).addTo(map);
-        marker.bindPopup(`<a target="_blank" rel="noopener" href="//${v.url}">${key}</a>` + `<img class="gmarker nofancy" src=${cover} style="margin-top:4px;" />`);
+        marker.bindPopup(`<a href="https://photo.means88.com/${v.url}">${key}</a>` + `<img class="gmarker nofancy" src=${cover} style="margin-top:4px;" />`);
         if (firstMark === null) {
           firstMark = marker;
         }
