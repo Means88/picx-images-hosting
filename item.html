@@ -273,12 +273,13 @@
 </style>
   <!-- Main Content -->
   <script src="js/html2canvas.js"></script>
+<script src="js/mini-live-photo.js"></script>
 <section class="pjax-area">
   <div class="content-area post-album fullscreen-content-area">
     <div class="grid grid-cols-3">
       <div class="fullscreen-pic gap-2 wrapper">
         <div id="all-pic" class="pic-area">
-          <div class="pic-item" />
+          <div id="pic-g" class="pic-item" />
           <img id="imgbox" class="pic-box" src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00003.webp" />
         </div>
         <div id="exif-wrapper" class="pic-wrapper">
@@ -361,7 +362,7 @@
     @media (max-width: 768px) {
         .pic-wrapper {
             padding: 4px 0px;
-        }        
+        }
 
         #exif-param {
             font-size: .5rem;
@@ -385,12 +386,12 @@
         }
     }
 
-    .apple-logo, 
-    .ricoh-logo, 
+    .apple-logo,
+    .ricoh-logo,
     .fujifilm-logo {
         height: 40px;
     }
-    
+
     .nikon-logo {
         height: 50px;
     }
@@ -403,10 +404,10 @@
     .dji-logo {
         width: 60px;
     }
-    
+
     @media (max-width: 768px) {
-        .apple-logo, 
-        .ricoh-logo, 
+        .apple-logo,
+        .ricoh-logo,
         .nikon-logo,
         .fujifilm-logo {
             height: 30px;
@@ -425,8 +426,47 @@
             border-width: thin;
             background-color: white;
             border-color: white;
-        }        
+        }
     }
+
+.mlp-wrap {
+    overflow: hidden;
+    border-radius: inherit;    /* 如果父级有圆角，继承一下更自然 */
+}
+
+.mlp-wrap, [data-livephoto] { position: relative; overflow: hidden; border-radius: inherit; }
+
+/* 初始隐藏视频，启用硬件合成避免闪烁 */
+.mlp-wrap .mlp-video, [data-livephoto] .mlp-video{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:contain;
+  opacity:0; transition:opacity .18s ease, transform .25s ease;
+  will-change: opacity, transform; pointer-events:none;
+}
+
+/* “首帧就绪”后，允许显示（只把不透明度交给 JS 控） */
+.mlp-wrap.is-prepped .mlp-video,
+[data-livephoto].is-prepped .mlp-video{ opacity:0; }
+
+/* 开始播放时再交叉淡入 */
+.mlp-wrap.is-playing .mlp-video,
+[data-livephoto].is-playing .mlp-video{ opacity:1; }
+
+/* （可选）缩放动画 */
+.mlp-wrap.is-zoom .mlp-video,
+[data-livephoto].is-zoom .mlp-video{ transform: scale(1.04); }
+
+[data-livephoto].is-playing {
+  -webkit-touch-callout: none;
+  user-select: none;
+  touch-action: none;
+}
+
+/* 禁止浏览器把 img/video 当成可拖拽对象 */
+[data-livephoto] img,
+[data-livephoto] video {
+  -webkit-user-drag: none;
+  user-drag: none; /* 非标准，但部分浏览器支持 */
+}
 </style>
       </div>
       <p id="descbox" class="text-center text-xs hint-text" hidden>  </p>
@@ -442,13 +482,16 @@
           
           
           
+          
           <a class="album-item lazy" id="0"
             name="DSC00003" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00003.webp"
             desc=" - · - "
             share="item/DSC00003.webp"
+            video=""
             extra='{"desc":null,"dir":"item","exif":"SONY ILCE-6700 1/30s F3.5 ISO 1250 18mm E 18-135mm F3.5-5.6 OSS ","exif_data":{"EXIF DateTimeOriginal":"2024:05:06 21:44:23","EXIF ExposureTime":"1/30s","EXIF FNumber":"F3.5","EXIF FocalLength":"18mm","EXIF ISOSpeedRatings":"ISO 1250","EXIF LensModel":"E 18-135mm F3.5-5.6 OSS","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"DSC00003","path":"item/DSC00003.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00003.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00003.webp"}'
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00003.webp"
             aria-label="the photo 0"></a>
+          
           
           
           
@@ -464,9 +507,11 @@
             name="DSC00023" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00023.webp"
             desc=" - · - "
             share="item/DSC00023.webp"
+            video=""
             extra='{"desc":null,"dir":"item","exif":"SONY ILCE-6700 1/160s F5.6 ISO 4000 91mm E 18-135mm F3.5-5.6 OSS ","exif_data":{"EXIF DateTimeOriginal":"2024:05:10 20:46:33","EXIF ExposureTime":"1/160s","EXIF FNumber":"F5.6","EXIF FocalLength":"91mm","EXIF ISOSpeedRatings":"ISO 4000","EXIF LensModel":"E 18-135mm F3.5-5.6 OSS","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"DSC00023","path":"item/DSC00023.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00023.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00023.webp"}'
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00023.webp"
             aria-label="the photo 1"></a>
+          
           
           
           
@@ -482,9 +527,11 @@
             name="DSC00034-1" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00034-1.webp"
             desc=" - · - "
             share="item/DSC00034-1.webp"
+            video=""
             extra='{"desc":null,"dir":"item","exif":"SONY ILCE-6700 1/80s F5 ISO 1250 50mm E 18-135mm F3.5-5.6 OSS ","exif_data":{"EXIF DateTimeOriginal":"2024:05:30 17:34:38","EXIF ExposureTime":"1/80s","EXIF FNumber":"F5","EXIF FocalLength":"50mm","EXIF ISOSpeedRatings":"ISO 1250","EXIF LensModel":"E 18-135mm F3.5-5.6 OSS","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"DSC00034-1","path":"item/DSC00034-1.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00034-1.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00034-1.webp"}'
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00034-1.webp"
             aria-label="the photo 2"></a>
+          
           
           
           
@@ -500,9 +547,11 @@
             name="DSC00034" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00034.webp"
             desc=" - · - "
             share="item/DSC00034.webp"
+            video=""
             extra='{"desc":null,"dir":"item","exif":"SONY ILCE-6700 1/80s F5 ISO 1250 50mm E 18-135mm F3.5-5.6 OSS ","exif_data":{"EXIF DateTimeOriginal":"2024:05:30 17:34:38","EXIF ExposureTime":"1/80s","EXIF FNumber":"F5","EXIF FocalLength":"50mm","EXIF ISOSpeedRatings":"ISO 1250","EXIF LensModel":"E 18-135mm F3.5-5.6 OSS","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"DSC00034","path":"item/DSC00034.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00034.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00034.webp"}'
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00034.webp"
             aria-label="the photo 3"></a>
+          
           
           
           
@@ -518,9 +567,11 @@
             name="DSC00062" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00062.webp"
             desc=" - · - "
             share="item/DSC00062.webp"
+            video=""
             extra='{"desc":null,"dir":"item","exif":"SONY ILCE-6700 1/40s F2.8 ISO 100 39mm 18-50mm F2.8 DC DN | Contemporary 021 ","exif_data":{"EXIF DateTimeOriginal":"2024:06:09 10:10:56","EXIF ExposureTime":"1/40s","EXIF FNumber":"F2.8","EXIF FocalLength":"39mm","EXIF ISOSpeedRatings":"ISO 100","EXIF LensModel":"18-50mm F2.8 DC DN | Contemporary 021","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"DSC00062","path":"item/DSC00062.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00062.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/DSC00062.webp"}'
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/DSC00062.webp"
             aria-label="the photo 4"></a>
+          
           
           
           
@@ -536,9 +587,11 @@
             name="_DSC0262" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/_DSC0262.webp"
             desc=" - · - "
             share="item/_DSC0262.webp"
+            video=""
             extra='{"desc":null,"dir":"item","exif":"SONY ILCE-6700 1/13s F14 ISO 100 50mm 18-50mm F2.8 DC DN | Contemporary 021 ","exif_data":{"EXIF DateTimeOriginal":"2024:08:12 21:12:01","EXIF ExposureTime":"1/13s","EXIF FNumber":"F14","EXIF FocalLength":"50mm","EXIF ISOSpeedRatings":"ISO 100","EXIF LensModel":"18-50mm F2.8 DC DN | Contemporary 021","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"_DSC0262","path":"item/_DSC0262.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/_DSC0262.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/_DSC0262.webp"}'
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/_DSC0262.webp"
             aria-label="the photo 5"></a>
+          
           
           
           
@@ -554,6 +607,7 @@
             name="_DSC0284-2" rel="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/_DSC0284-2.webp"
             desc=" - · - "
             share="item/_DSC0284-2.webp"
+            video=""
             extra='{"desc":null,"dir":"item","exif":"SONY ILCE-6700 1/10s F4 ISO 100 50mm 18-50mm F2.8 DC DN | Contemporary 021 ","exif_data":{"EXIF DateTimeOriginal":"2024:08:17 16:06:14","EXIF ExposureTime":"1/10s","EXIF FNumber":"F4","EXIF FocalLength":"50mm","EXIF ISOSpeedRatings":"ISO 100","EXIF LensModel":"18-50mm F2.8 DC DN | Contemporary 021","Image Make":"SONY","Image Model":"ILCE-6700"},"location":[],"name":"_DSC0284-2","path":"item/_DSC0284-2.webp","thum":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/_DSC0284-2.webp","url":"https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/item/_DSC0284-2.webp"}'
             href="javascript:void(0);" onClick="changeimg(event)" data-src="https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail//item/_DSC0284-2.webp"
             aria-label="the photo 6"></a>
@@ -635,6 +689,7 @@
           name = target.getAttribute('name');
           var desc = target.getAttribute('desc');
           var thum = target.getAttribute('data-src');
+          var video = target.getAttribute('video');
           var v = JSON.parse(target.getAttribute('extra'));
           imageBox.src = thum;
           imageBox.classList.add('blur');
@@ -648,6 +703,9 @@
           imageBox.setAttribute("share", target.getAttribute('share'));
           var imageFancy = imageBox.parentElement; // imageBox 是放置大图片的图框
           imageFancy.setAttribute("href", imgLink);
+
+          var picg = document.getElementById('pic-g');
+          attachLivePhoto(picg, video !== '', video);
           var fancyBoxImage = document.getElementsByClassName("fancybox__image")[0];
           if (fancyBoxImage !== undefined) {
             fancyBoxImage.src = imgLink;
@@ -932,6 +990,7 @@
             border: 0.8px solid white;
           }
         }
+
       </style>
 </section>
   <!-- Footer -->
