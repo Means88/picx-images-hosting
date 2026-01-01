@@ -22,7 +22,7 @@
   <meta name="author" content="Means88">
   
   <!--Open Graph Title-->
-  <meta property="og:title" content="Grid" />
+  <meta property="og:title" content="照片集" />
   <!--Open Graph Description-->
   <meta property="og:description" content="さあ、旅に出よう、忘れないうちに" />
   <!--Open Graph Site Name-->
@@ -38,7 +38,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- Title -->
   
-  <title>Grid - Means88 | Gallery</title>
+  <title>照片集 - Means88 | Gallery</title>
   <!-- 添加到主屏后的标题（iOS 6 新增） -->
   <meta name="apple-mobile-web-app-title" content="Means88 | Gallery">
   <!-- 是否启用 WebApp 全屏模式 -->
@@ -177,6 +177,21 @@
   
   
   
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "照片集",
+      "image": "https://imgur.lzmun.com/picgo/after2022/6DD1FBC3-AD8A-4340-842D-6ACF531F8291_1_105_c.jpeg_itp",
+      "datePublished": "Thu Jan 01 2026 12:02:18 GMT+0000",
+      "author": [{
+        "@type": "Person",
+        "name": "Means88",
+        "url": "https://photo.means88.com"
+      }]
+    }
+  </script>
+  
   
   
   <!--<script src="https://cdn.tailwindcss.com"></script>
@@ -272,51 +287,94 @@
   }
 </style>
   <!-- Main Content -->
-  <script src="js/sql-wasm.js"></script>
-<section class="pjax-area">
+  <section class="pjax-area">
   <div class="content-area album-area">
-    <div id="grid" class="container gpro-container grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    
+    <div class="container gpro-slogan title">
+      The moments when I pressed the shutter, the moments are forever.
+    </div>
+    
+    <div class="container gpro-container grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      
+      
+      <a href="summer-pockets">
+        <div class="gpro-tile lazy" data-src="summer-pockets/_DSC3271.webp">
+          <div class="gpro-tile-descr">Summer Pockets</div>
+        </div>
+      </a>
+      
+      <a href="2025summer">
+        <div class="gpro-tile lazy" data-src="2025summer/_DSC2942.webp">
+          <div class="gpro-tile-descr">白川乡/金泽</div>
+        </div>
+      </a>
+      
+      <a href="sakura">
+        <div class="gpro-tile lazy" data-src="sakura/_DSC2280.webp">
+          <div class="gpro-tile-descr">踏青</div>
+        </div>
+      </a>
+      
+      <a href="hokkaido">
+        <div class="gpro-tile lazy" data-src="hokkaido/_DSC1129.webp">
+          <div class="gpro-tile-descr">北海道</div>
+        </div>
+      </a>
+      
+      <a href="kobe">
+        <div class="gpro-tile lazy" data-src="kobe/_DSC0995.webp">
+          <div class="gpro-tile-descr">神户</div>
+        </div>
+      </a>
+      
+      <a href="fuji">
+        <div class="gpro-tile lazy" data-src="fuji/_DSC0765.webp">
+          <div class="gpro-tile-descr">富士山</div>
+        </div>
+      </a>
+      
+      <a href="yakushima">
+        <div class="gpro-tile lazy" data-src="yakushima/_DSC0445.webp">
+          <div class="gpro-tile-descr">屋久岛</div>
+        </div>
+      </a>
+      
+      <a href="dust">
+        <div class="gpro-tile lazy" data-src="dust/DSC00038-1.webp">
+          <div class="gpro-tile-descr">废土</div>
+        </div>
+      </a>
+      
+      <a href="others">
+        <div class="gpro-tile lazy" data-src="others/DSC00216.webp">
+          <div class="gpro-tile-descr">其它</div>
+        </div>
+      </a>
+      
+      <a href="cat">
+        <div class="gpro-tile lazy" data-src="cat/_DSC0613.webp">
+          <div class="gpro-tile-descr">猫</div>
+        </div>
+      </a>
+      
+      <a href="item">
+        <div class="gpro-tile lazy" data-src="item/DSC00003.webp">
+          <div class="gpro-tile-descr">室内小物</div>
+        </div>
+      </a>
+      
+      <a href="example">
+        <div class="gpro-tile lazy" data-src="example/1.webp">
+          <div class="gpro-tile-descr">示例</div>
+        </div>
+      </a>
       
     </div>
   </div>
-  <script type="module">
-    var grid = document.getElementById("grid");
-    var name = getParam('name');
-    const start = performance.now();
-    const SQL = await initSqlJs({
-      locateFile: (file) => `/js/sql-wasm.wasm`,
-    });
-    const sqlite = await fetch("sqlite.db");
-    const sqlite_buf = await sqlite.arrayBuffer();
-    const db = new SQL.Database(new Uint8Array(sqlite_buf));
-    const result = db.exec(
-`
-SELECT photo.path, album.dir
-FROM photo
-LEFT OUTER JOIN album
-ON photo.dir_id = album.id
-WHERE album.dir = '` + name + "'"
-    )[0].values;
-    var setTitle = true;
-    for (const v of result) {
-      var d = document.createElement('div');
-      d.classList = 'gpro-tile lazy';
-      d.setAttribute('data-src', 'https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@thumbnail/' + v[0].replace(/\.\w+$/, '.webp'));
-      var a = document.createElement('a');
-      a.setAttribute('data-fancybox', 'gallery');
-      a.href = 'https://cdn.jsdelivr.net/gh/Means88/picx-images-hosting@master/' + v[0];
-      a.appendChild(d);
-      grid.appendChild(a);
-      if (setTitle) {
-        setTitle = false;
-        document.title = v[1] + ' ' + document.title; 
-      }
-    }
-    $(function () {
+  <script>
+    $(function() {
       $("div.lazy").lazyload();
     });
-    const duration = performance.now() - start;
-    console.log(duration);    
   </script>
   <style>
     body {
@@ -340,19 +398,22 @@ WHERE album.dir = '` + name + "'"
     }
 
     .gpro-container {
-      gap: 20px;
+      margin-top: 120px;
+      gap: 8px;
     }
 
     .gpro-tile {
       aspect-ratio: 3 / 2;
       background-position: center;
       background-size: cover;
+      border-radius: 5px;
       transition: all .15s ease-in-out;
       min-height: 211px;
     }
 
     .gpro-tile:hover {
       box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+      transform: scale(1.02);
       transition: all .15s ease-in-out;
     }
 
@@ -362,40 +423,35 @@ WHERE album.dir = '` + name + "'"
       left: 0;
       width: 100%;
       height: 100%;
+      background: linear-gradient(#00000000 50%, #00000055 100%);
       color: #fff;
       font-size: 14px;
+      border-radius: 5px;
+      opacity: 0;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      align-items: center;
       text-overflow: clip;
-      flex-direction: column;
       transition: all .15s ease-in-out;
       padding-bottom: .85em;
-      opacity: 0;
-      background-color: rgb(9, 9, 11);
     }
 
     .gpro-tile-descr:hover {
-      opacity: 0.8;
+      opacity: 1;
       transition: all .15s ease-in-out;
     }
 
     @media (max-width: 768px) {
-      .gpro-tile-descr {
-        opacity: 0.6;
-      }
-
       .gpro-slogan {
         font-size: 28px;
       }
 
       .content-area {
-        margin-top: 0px;
+        margin-top: 80px;
       }
 
       .gpro-container {
-        margin-top: 40px;
+        margin-top: 60px;
       }
     }
   </style>
