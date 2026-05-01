@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "description": "动物图片索引 — 按动物种类归档，值为文件路径列表",
+    "format": "folder/filename.ext",
+    "generated": "2026-04-30",
+    "source": "picx-images-hosting",
+    "status": "complete for current top-level image folders; generated using thumbnail contact sheets"
+  },
+  "中华田园猫·纯白 / Chinese Domestic Cat (Solid White)": [
+    "cat/_DSC0598.webp",
+    "cat/_DSC0603.webp",
+    "cat/_DSC0613.webp"
+  ],
+  "中华田园猫·橘色虎斑 / Chinese Domestic Cat (Orange Tabby)": [
+    "cat/DSC00007.webp",
+    "cat/DSC00008.webp"
+  ],
+  "棕熊 / Brown Bear (Ursus arctos)": [
+    "hokkaido/_DSC1129.webp"
+  ],
+  "王企鹅 / King Penguin (Aptenodytes patagonicus)": [
+    "hokkaido/_DSC1312.webp"
+  ],
+  "蜜蜂属 / Honey Bee sp. (Apis sp.)": [
+    "others/DSC00037.webp",
+    "others/DSC00117.webp",
+    "others/DSC00164.webp"
+  ],
+  "乌鸫 / Eurasian Blackbird (Turdus merula)": [
+    "others/DSC00196-Enhanced-NR.webp",
+    "others/DSC00197-Enhanced-NR.webp"
+  ],
+  "红嘴蓝鹊 / Red-billed Blue Magpie (Urocissa erythroryncha)": [
+    "others/DSC00199-Enhanced-NR.webp",
+    "others/_DSC0904.2w4u4vbx5uy0.webp",
+    "others/_DSC0956-Enhanced-NR.12i6yj3ekjbk.webp"
+  ],
+  "疣鼻天鹅 / Mute Swan (Cygnus olor)": [
+    "sakura/_DSC1964.webp"
+  ],
+  "梅花鹿 / Sika Deer (Cervus nippon)": [
+    "sakura/_DSC2316.webp"
+  ],
+  "海鸥（雕塑/装置除外，真实个体）/ Gull sp. (Larinae sp.)": [
+    "summer-pockets/_DSC3427.webp"
+  ],
+  "屋久鹿（屋久岛梅花鹿亚种）/ Yakushima Sika Deer (Cervus nippon yakushimae)": [
+    "yakushima/_DSC0445.webp",
+    "yakushima/_DSC0515.webp"
+  ],
+  "日本猕猴 / Japanese Macaque (Macaca fuscata)": [
+    "yakushima/_DSC0462-Enhanced-NR.webp",
+    "yakushima/_DSC0471.webp",
+    "yakushima/_DSC0473-Enhanced-NR.webp"
+  ]
+}
