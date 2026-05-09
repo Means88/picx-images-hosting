@@ -1,29 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><%- config.title %></title>
-  <subtitle><%- config.subtitle %></subtitle>
-  <link href="<%- url_for(config.feed.path) %>" rel="self"/>
-  <link href="<%- config.url %>"/>
-  <%# Use the most-recently-updated post date instead of new Date() so the
-      feed root <updated> field does not change on every build when no content
-      has actually changed. %>
-  <updated><%- posts.length > 0 ? posts.first().updated.toISOString() : '2020-01-01T00:00:00.000Z' %></updated>
-  <id><%- config.url %>/</id>
+  <title>Means88 | Gallery</title>
+  
+  <subtitle>Means88&#39;s memory library</subtitle>
+  <link href="https://photo.means88.com/atom.xml" rel="self"/>
+  
+  <link href="https://photo.means88.com/"/>
+  <updated>2026-05-08T12:21:29.911Z</updated>
+  <id>https://photo.means88.com/</id>
+  
   <author>
-    <name><%- config.author %></name>
+    <name>Means88</name>
+    
   </author>
-  <% posts.each(function(post){ %>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
   <entry>
-    <title><%- post.title %></title>
-    <link href="<%- post.permalink %>"/>
-    <id><%- post.permalink %></id>
-    <published><%- post.date.toISOString() %></published>
-    <updated><%- post.updated.toISOString() %></updated>
-    <% if (post.tags && post.tags.length){ %>
-    <% post.tags.each(function(tag){ %>
-    <category term="<%- tag.name %>"/>
-    <% }); %>
-    <% } %>
+    <title>照片集</title>
+    <link href="https://photo.means88.com/2026/undefined/"/>
+    <id>https://photo.means88.com/2026/undefined/</id>
+    <published>2026-05-08T12:21:29.911Z</published>
+    <updated>2026-05-08T12:21:29.911Z</updated>
+    
+    
+    
+    
+    
   </entry>
-  <% }); %>
+  
 </feed>
