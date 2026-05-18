@@ -1,3 +1,11 @@
+首尔:
+  url: seoul
+  date: "2026-05-15"
+  style: fullscreen
+  cover: seoul/_DSC3841.webp
+  location:
+    - 37.511226
+    - 127.098194
 Summer Pockets:
   url: summer-pockets
   date: "2025-11-28"
