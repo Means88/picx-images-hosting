@@ -1,11 +1,3 @@
-临海:
-  url: linhai
-  date: "2026-06-21"
-  style: fullscreen
-  cover: linhai/DSC04020.webp
-  location:
-    - 28.847015221919886
-    - 121.11543591718352
 Okinawa:
   url: okinawa
   date: "2026-06-28"
@@ -22,6 +14,14 @@ Osaka:
   location:
     - 34.70260313560261
     - 135.49957593128025
+临海:
+  url: linhai
+  date: "2026-06-21"
+  style: fullscreen
+  cover: linhai/DSC04020.webp
+  location:
+    - 28.847015221919886
+    - 121.11543591718352
 首尔:
   url: seoul
   date: "2026-05-15"
