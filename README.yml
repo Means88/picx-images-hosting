@@ -1,3 +1,19 @@
+Okinawa:
+  url: okinawa
+  date: "2026-06-28"
+  style: fullscreen
+  cover: okinawa/DSC04240.webp
+  location:
+    - 26.21200702193974
+    - 127.67781547800286
+Osaka:
+  url: osaka-2026
+  date: "2026-06-24"
+  style: fullscreen
+  cover: osaka-2026/DSC04071.webp
+  location:
+    - 34.70260313560261
+    - 135.49957593128025
 首尔:
   url: seoul
   date: "2026-05-15"
