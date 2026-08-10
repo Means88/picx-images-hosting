@@ -1,3 +1,11 @@
+anemoi:
+  url: anemoi
+  date: "2026-07-22"
+  style: fullscreen
+  cover: anemoi/DSC04623.webp
+  location:
+    - 44.30819444460335
+    - 141.65852220590847
 Okinawa:
   url: okinawa
   date: "2026-06-28"
